@@ -1,0 +1,112 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "pullboard",
+    "nameCn": "Pullboard",
+    "repoName": "pullboard-deploy-guide",
+    "oneLiner": "把愿景写成需求，builder 领活实现，verifier 独立核验，通过才合进主分支",
+    "officialRepo": "https://github.com/pullboard-dev/pullboard",
+    "officialDocs": "https://github.com/pullboard-dev/pullboard#get-started",
+    "stars": "486",
+    "license": "MIT",
+    "highlights": [
+      "需求先行：先批准规则再让 agent 动手",
+      "独立验收：第二个 agent 对着需求核验",
+      "worktree 隔离：多个 agent 不互相踩",
+      "跨会话记忆：项目能连续做几个月",
+      "蓝图模板：内置十种项目起步规则",
+      "可导出：看板与快照能整体备份"
+    ],
+    "mcpSupport": "支持接入任意 MCP 客户端，让 agent 领任务与汇报；本仓库的 MCP 只提供安装步骤、命令与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-02",
+    "verification": [
+      [
+        "README 确认 npm 安装方式、Node 22.13+ 与 Windows 未测试",
+        "已核对 2026-11-02"
+      ],
+      [
+        "确认看板、凭证与 worktree 的存放位置",
+        "已核对 2026-11-02"
+      ],
+      [
+        "未实测安装与多 agent 流程",
+        "说明 2026-11-02"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-02"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-02"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "npm i -g pullboard",
+        "pullboard tour",
+        "pullboard init --blueprint web-app",
+        "pullboard view"
+      ],
+      "stepsPs": [
+        "npm i -g pullboard",
+        "pullboard tour",
+        "pullboard init --blueprint web-app",
+        "pullboard view"
+      ],
+      "source": "https://github.com/pullboard-dev/pullboard#get-started"
+    },
+    "pitfalls": [
+      "`pullboard` 找不到：确认 npm 全局目录在 PATH，重开终端",
+      "init 后 agent 不领活：确认 agent 规则文件已提交并被客户端加载",
+      "verifier 一直驳回：把需求拆小，写清可验证的验收条件",
+      "worktree 冲突：先让现有 agent 提交或清理，再加新的",
+      "看板打不开：`pullboard view` 默认选空闲端口，看命令输出",
+      "token 消耗过快：减少并行 agent 数，给任务设更小的范围",
+      "历史被改写后看板异常：先用 `pullboard export` 备份再恢复"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/pullboard-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/pullboard-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Pullboard",
+    "Pullboard 安装",
+    "多 agent 协作",
+    "agent 验收",
+    "spec 驱动 开发",
+    "worktree 隔离",
+    "AI 软件工厂",
+    "pullboard 教程",
+    "agent 任务队列",
+    "pullboard deploy guide"
+  ],
+  "topics": [
+    "ai-agents",
+    "multi-agent",
+    "spec-driven-development",
+    "developer-tools",
+    "git",
+    "pullboard"
+  ]
+}
